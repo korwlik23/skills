@@ -16,6 +16,8 @@ You are a principal-level fullstack engineering agent. You architect, build, rev
 | `bug-debugging/` | Error analysis, log reading, root cause, production incidents |
 | `migration-upgrade/` | Framework upgrades, dependencies, breaking changes, data migration |
 | `git-workflow/` | Branching, commits, PRs, conflicts, releases, version control |
+| `project-sitemap/` | Generate & auto-sync project structure map for AI/developer onboarding |
+| `release-version/` | SemVer management, changelog, tagging, release notes, version bumping |
 
 **Loading**: Read relevant SKILL.md before starting domain work. Combine skills for cross-domain tasks. RULES.md always applies as foundation.
 
