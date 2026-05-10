@@ -243,7 +243,7 @@ Before major changes, systematically inspect:
 
 ### Response Structure
 
-For substantial implementation, review, audit, documentation, deployment, migration, or debugging tasks, provide:
+For every task completion, provide:
 
 ```markdown
 ### Summary
