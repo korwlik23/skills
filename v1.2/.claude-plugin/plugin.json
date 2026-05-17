@@ -1,0 +1,8 @@
+{
+  "name": "fullstack-skills",
+  "version": "1.2.0",
+  "description": "Principal-level fullstack engineering skill pack: 23 skills (domain + lifecycle) governed by a shared Workflow Discipline contract (RULES.md/AGENTS.md). Skills auto-discovered from skills/.",
+  "author": {
+    "name": "korwlik23"
+  }
+}

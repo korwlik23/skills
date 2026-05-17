@@ -7,6 +7,8 @@
 /superpowers/
 # jirateep12z/skills.git — a different person's repo, not part of this repo
 /v3/
+# jirateep12z/skills.git (newer iteration) — has its own nested .git; not part of this repo
+/v4/
 
 # --- OS / editor noise ---
 .DS_Store
