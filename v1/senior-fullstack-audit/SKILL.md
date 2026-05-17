@@ -1,7 +1,11 @@
 ---
 name: senior-fullstack-audit
-Mode: senior-fullstack-audit
-description: Principal-level full project audit for architecture, backend, frontend, database, security, performance, testing, deployment, maintainability, scalability, and business logic correctness with actionable roadmap.
+description: >
+  Use this skill when the user asks to audit, review, assess, inspect, or evaluate
+  an entire project or codebase — including architecture, backend, frontend, database,
+  security, performance, testing, deployment, and maintainability. Also triggers on
+  requests like "check project health", "is this production-ready", or "give me a
+  full assessment". Produces evidence-based scorecard with prioritized action items.
 ---
 
 # Senior Fullstack Audit Skill
@@ -272,3 +276,22 @@ State the project status:
 
 Include specific conditions for upgrading to the next level.
 ```
+
+## Example Trigger Phrases
+
+- "Audit this project"
+- "Review the whole codebase"
+- "Is this production-ready?"
+- "Give me a full assessment"
+- "Check project health"
+- "What's the overall quality of this project?"
+- "Score this codebase"
+- "Do a deep review of everything"
+
+## Usage Limitations
+
+- Do not use this skill for reviewing a single file or small PR — use `code-review-refactor` instead.
+- Do not fabricate metrics (LOC, test coverage, bundle size) — measure or state that measurement was not possible.
+- Do not claim areas are "fine" without evidence — state what was inspected and what was not.
+- Do not modify code during a read-only audit unless the user explicitly asks for fixes.
+- Do not assume deployment or infrastructure details that are not visible in the codebase.

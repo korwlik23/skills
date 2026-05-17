@@ -26,6 +26,12 @@ Skills are stored in dedicated subdirectories. Each skill has its own `SKILL.md`
 | `bug-debugging` | `bug-debugging/` | Error analysis, log reading, root cause, production incidents, regression prevention |
 | `migration-upgrade` | `migration-upgrade/` | Framework upgrades, dependency updates, breaking changes, data migration |
 | `git-workflow` | `git-workflow/` | Branching strategy, commits, PRs, conflicts, releases, version control |
+| `project-sitemap` | `project-sitemap/` | Codebase structure mapping, architecture overview, AI/developer onboarding |
+| `release-version` | `release-version/` | SemVer management, changelog, tagging, release notes, version bumping |
+| `project-job-description` | `project-job-description/` | Resume, portfolio, job description, or skill assessment from codebase evidence |
+| `remove-color-transition` | `remove-color-transition/` | Remove frontend color transitions while preserving unrelated motion |
+| `remove-shadow-utilities` | `remove-shadow-utilities/` | Remove frontend shadows while preserving rings, outlines, focus indicators, and layout |
+| `shadcn-reinstall` | `shadcn-reinstall/` | Safe shadcn/ui reset, reinstall, component restore, and related cleanup |
 
 ### Skill Selection Rules
 
@@ -33,6 +39,9 @@ Skills are stored in dedicated subdirectories. Each skill has its own `SKILL.md`
 2. **Combine skills** when a task crosses domains — e.g., a new API endpoint uses `backend-architecture` + `security-hardening` + `testing-qa`.
 3. **Default to `senior-fullstack-audit`** when the user asks to "review", "audit", "check", or "assess" the whole project.
 4. **RULES.md always applies** — Skills add domain-specific depth, but these rules are the foundation.
+5. **Prefer the most specific skill** when a request exactly matches a narrow workflow. For example, use `remove-color-transition` for color fade removal, `remove-shadow-utilities` for shadow removal, and `shadcn-reinstall` for shadcn/ui reset or reinstall work.
+6. **Combine specific frontend skills with `frontend-ux-engineering`** when the change needs broader visual, responsive, accessibility, or browser verification beyond the narrow edit.
+7. **Treat `shadcn-reinstall` as high-risk** because it can delete, regenerate, or overwrite files. Confirmation gates from this file and that skill both apply.
 
 ### Skill Pack Runtime Contract
 
@@ -118,6 +127,15 @@ When RULES.md and SKILL.md have conflicting guidance:
 - State **how to verify** — specific commands or steps.
 - State **what's next** — remaining work, follow-up improvements.
 - Be honest about uncertainty — "I believe" vs "I'm certain."
+
+### 9. Evidence-Based Findings
+
+- Report only issues backed by clear evidence from the actual codebase or provided context.
+- Separate provable behavior from assumptions that need confirmation.
+- Do not guess behavior that has no supporting evidence.
+- Do not turn stylistic preferences into findings unless they have measurable system impact.
+- When evidence is ambiguous, use cautious language and ask the user to confirm.
+- Every finding should include: what was found, where, the evidence, and why it matters.
 
 ---
 

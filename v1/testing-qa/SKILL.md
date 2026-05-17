@@ -1,7 +1,11 @@
 ---
 name: testing-qa
-Mode: testing-qa
-description: Principal-level testing and QA skill for test strategy, unit tests, feature tests, integration tests, E2E tests, frontend testing, performance testing, security testing, CI integration, and release confidence assessment.
+description: >
+  Use this skill when adding tests, reviewing test coverage, debugging
+  regressions, setting up test infrastructure, or preparing production
+  release QA. Triggers on requests about unit tests, integration tests,
+  E2E tests, test strategy, coverage gaps, flaky tests, CI pipeline tests,
+  QA checklists, or any request mentioning testing or quality assurance.
 ---
 
 # Testing QA Skill
@@ -352,3 +356,23 @@ Copy-paste-ready test commands.
 - 🟡 High — Minor gaps, safe to release
 - 🟢 Very High — Comprehensive coverage, confident release
 ```
+
+## Example Trigger Phrases
+
+- "Add tests for this feature"
+- "What's the test coverage like?"
+- "Write unit tests for this service"
+- "Set up E2E testing"
+- "Review test quality"
+- "This test is flaky"
+- "Create a QA checklist for release"
+- "Is this safe to release?"
+- "Add regression tests for this bug fix"
+
+## Usage Limitations
+
+- Do not fabricate test results or coverage numbers — run commands or state they were not run.
+- Do not use this skill for feature implementation — use domain-specific skills instead.
+- Do not write tests that depend on execution order or shared mutable state.
+- Do not mock so heavily that the test no longer validates real behavior.
+- Do not skip stating what tests were not written and why.

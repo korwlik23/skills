@@ -1,7 +1,11 @@
 ---
 name: bug-debugging
-Mode: bug-debugging
-description: Principal-level debugging and troubleshooting skill for systematic error analysis, log reading, root cause identification, production incident response, and regression prevention across all layers of the stack.
+description: >
+  Use this skill when fixing bugs, debugging errors, reading logs, troubleshooting
+  production issues, diagnosing performance problems, or responding to incidents.
+  Triggers on requests involving error messages, stack traces, broken features,
+  unexpected behavior, log analysis, "it doesn't work", "there's a bug",
+  or any request about finding and fixing problems in code.
 ---
 
 # Bug Debugging Skill
@@ -384,3 +388,23 @@ The exact code change and why it fixes the root cause.
 ## Related Issues
 Other areas that may have the same bug pattern.
 ```
+
+## Example Trigger Phrases
+
+- "There's a bug in this feature"
+- "This endpoint returns 500"
+- "It doesn't work"
+- "Why is this failing?"
+- "Debug this error"
+- "Read these logs and find the problem"
+- "Production is down"
+- "This used to work but now it's broken"
+- "Help me troubleshoot this"
+
+## Usage Limitations
+
+- Do not modify production data or run destructive commands during debugging without confirmation.
+- Do not claim root cause without evidence from code, logs, or stack traces.
+- Do not skip writing a regression test after confirming the fix.
+- Do not deploy untested hotfixes — always verify before pushing to production.
+- Do not assume environment-specific details (config, secrets, infrastructure) without evidence.

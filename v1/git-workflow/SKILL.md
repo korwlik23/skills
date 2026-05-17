@@ -1,7 +1,11 @@
 ---
 name: git-workflow
-Mode: git-workflow
-description: Principal-level Git workflow skill for branching strategy, commit conventions, PR workflow, conflict resolution, release management, monorepo patterns, and version control best practices.
+description: >
+  Use this skill for Git branching strategy, commit conventions, PR workflow,
+  merge conflict resolution, release management, changelog generation, and
+  version control best practices. Triggers on requests about git, branches,
+  commits, merging, rebasing, PRs, conflicts, tags, releases, or any
+  version control concern.
 ---
 
 # Git Workflow Skill
@@ -514,3 +518,23 @@ Hooks, CI checks, and tools to enforce.
 ## Team Guidelines
 Concise rules for all developers to follow.
 ```
+
+## Example Trigger Phrases
+
+- "Set up Git workflow for this project"
+- "How should I structure branches?"
+- "Fix this merge conflict"
+- "Write a good commit message for this"
+- "Create a release tag"
+- "Review PR workflow"
+- "Set up Git hooks"
+- "How do I undo this commit?"
+- "Generate changelog"
+
+## Usage Limitations
+
+- Do not force-push to shared branches (main, develop) without explicit confirmation.
+- Do not rewrite published history without confirming no one else has pulled.
+- Do not discard uncommitted work without showing what will be lost and getting confirmation.
+- Do not commit secrets, credentials, or .env files.
+- Do not assume team branching conventions without checking existing patterns.

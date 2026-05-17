@@ -1,0 +1,13 @@
+# --- Local Claude Code settings (machine-local, must never be pushed) ---
+.claude/settings.local.json
+.claude/*.local.json
+
+# --- Third-party repos cloned in for reference only (have their own .git) ---
+# obra/superpowers.git — external MIT project, not part of this repo
+/superpowers/
+# jirateep12z/skills.git — a different person's repo, not part of this repo
+/v3/
+
+# --- OS / editor noise ---
+.DS_Store
+Thumbs.db

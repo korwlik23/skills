@@ -1,7 +1,11 @@
 ---
 name: backend-architecture
-Mode: backend-architecture
-description: Principal-level backend architecture skill for Laravel, Node.js, Next.js, API systems, service layers, queues, jobs, validation, authorization, caching, event-driven design, and business logic at scale.
+description: >
+  Use this skill for backend feature work, API design, service layer creation,
+  business logic, architecture review, and scalability planning. Triggers on
+  requests involving controllers, services, jobs, queues, events, caching,
+  database queries, API endpoints, request validation, authorization logic,
+  or backend performance. Covers Laravel, Node.js, and Next.js patterns.
 ---
 
 # Backend Architecture Skill
@@ -250,3 +254,22 @@ Specific, actionable changes ordered by priority.
 ## Implementation Notes
 Technical details, migration steps, backward compatibility considerations.
 ```
+
+## Example Trigger Phrases
+
+- "Design an API for this feature"
+- "Review backend architecture"
+- "Create a service layer for this"
+- "Add a new endpoint"
+- "Optimize this query"
+- "Set up job/queue processing"
+- "Review controller logic"
+- "How should I structure this backend?"
+
+## Usage Limitations
+
+- Do not use this skill for frontend-only work — use `frontend-ux-engineering` instead.
+- Do not use for database-only optimization — use `database-performance` for deep schema/query work.
+- Do not make production data changes without explicit confirmation.
+- Do not assume database schema details that are not visible in migrations or models.
+- Do not introduce new dependencies without justification.

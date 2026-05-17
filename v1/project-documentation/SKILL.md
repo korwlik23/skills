@@ -1,7 +1,10 @@
 ---
 name: project-documentation
-Mode: project-documentation
-description: Principal-level project documentation skill for README generation, system architecture documentation, feature catalogs, installation guides, API documentation, usage guides, changelog, and contribution guidelines.
+description: >
+  Use this skill when creating, updating, or reviewing project documentation
+  including README, installation guides, architecture docs, API docs, usage
+  guides, changelogs, runbooks, or contribution guidelines. Triggers on
+  requests about docs, README, how-to guides, or any documentation need.
 ---
 
 # Project Documentation Skill
@@ -139,3 +142,22 @@ Unverified commands, stale upstream docs, missing screenshots, or production-spe
 ## Remaining Documentation Needs
 Areas that still need documentation or user-provided facts.
 ```
+
+## Example Trigger Phrases
+
+- "Create a README for this project"
+- "Document the API endpoints"
+- "Write installation guide"
+- "Update the architecture docs"
+- "Generate changelog"
+- "Create a runbook for this service"
+- "Document environment variables"
+- "Write contribution guidelines"
+
+## Usage Limitations
+
+- Do not invent commands, features, or configurations — document only what exists in the codebase.
+- Do not include real secrets, tokens, or production URLs in documentation.
+- Do not use placeholder content unless the user explicitly asks for a template.
+- Do not skip verification of commands and links when practical.
+- Do not assume project purpose or setup steps without inspecting the actual codebase.

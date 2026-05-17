@@ -1,7 +1,12 @@
 ---
 name: security-hardening
-Mode: security-hardening
-description: Principal-level security review and hardening skill for web apps, APIs, authentication, authorization, OWASP Top 10, supply chain security, secrets management, penetration testing, and compliance across Laravel, Next.js, Node.js, and Svelte.
+description: >
+  Use this skill for security review, vulnerability assessment, hardening,
+  penetration testing, and production safety. Triggers on requests about
+  authentication, authorization, OWASP Top 10, secrets management, CORS,
+  CSRF, XSS, SQL injection, file upload security, rate limiting, security
+  headers, or any request mentioning security, vulnerability, or exploit.
+  Covers Laravel, Next.js, Node.js, and Svelte.
 ---
 
 # Security Hardening Skill
@@ -282,3 +287,22 @@ Automated tests to prevent regression.
 ## Ongoing Security Practices
 Recommendations for continuous security.
 ```
+
+## Example Trigger Phrases
+
+- "Review security of this app"
+- "Check for vulnerabilities"
+- "Is this endpoint secure?"
+- "Review authentication flow"
+- "Check OWASP Top 10 coverage"
+- "Audit secrets management"
+- "Review file upload security"
+- "Harden this for production"
+
+## Usage Limitations
+
+- Do not use this skill for general code quality — use `code-review-refactor` instead.
+- Do not claim vulnerabilities without evidence from code, config, or dependencies.
+- Do not run actual penetration tests or exploit code — assess and recommend only.
+- Do not expose real secrets, tokens, or PII in findings or examples.
+- Do not assume infrastructure security details not visible in the codebase.

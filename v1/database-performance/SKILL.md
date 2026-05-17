@@ -1,7 +1,11 @@
 ---
 name: database-performance
-Mode: database-performance
-description: Principal-level database design and performance skill for schema review, query optimization, indexing strategy, migrations, data integrity, pagination, scaling, monitoring, and capacity planning.
+description: >
+  Use this skill for database schema review, slow queries, index strategy,
+  migrations, relationships, data integrity, scaling, and performance
+  optimization. Triggers on requests about SQL, EXPLAIN, N+1 queries,
+  indexes, schema design, pagination, connection pooling, query optimization,
+  table design, or any database-related performance concern.
 ---
 
 # Database Performance Skill
@@ -221,3 +225,23 @@ Growth projections, bottleneck predictions, recommended strategies.
 3. Schema improvements (naming, types, constraints)
 4. Long-term optimizations (partitioning, caching, archival)
 ```
+
+## Example Trigger Phrases
+
+- "This query is slow"
+- "Review database schema"
+- "Add indexes for this table"
+- "Optimize this query"
+- "Review migration safety"
+- "Check for N+1 queries"
+- "Design schema for this feature"
+- "How should I paginate this?"
+- "Review data integrity"
+
+## Usage Limitations
+
+- Do not use this skill for application logic — use `backend-architecture` instead.
+- Do not run destructive queries (DROP, TRUNCATE, DELETE) without explicit confirmation.
+- Do not assume table sizes or data distribution without EXPLAIN or metrics evidence.
+- Do not recommend indexes without considering write cost and actual query patterns.
+- Do not modify production data or schema without backup verification.

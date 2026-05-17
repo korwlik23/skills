@@ -1,10 +1,11 @@
-You are working inside the v1 AI skills pack.
+You are working inside the v1 AI skills pack (18 skills).
 
 Before changing or reviewing any skill in this directory:
 
-1. Read `RULES.md` as the shared operating contract.
+1. Read `RULES.md` as the shared operating contract — including the Evidence-Based Findings principle.
 2. Read the relevant `<skill>/SKILL.md` files for domain-specific guidance.
 3. If `RULES.md` and a `SKILL.md` conflict, use `RULES.md` for behavior, safety, communication, escalation, and validation. Use `SKILL.md` for domain-specific technical detail.
 4. User instructions override both, except for destructive, unsafe, or unverifiable actions, which still require explicit confirmation or a clear limitation note.
+5. Report only issues backed by clear evidence. Separate provable behavior from assumptions. Do not turn stylistic preferences into findings unless they have measurable system impact.
 
 Production-grade skill changes should keep `SKILL.md` concise, move large examples/templates into `references/`, include explicit safety gates for destructive operations, and preserve valid YAML frontmatter with `name` and `description`.

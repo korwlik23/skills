@@ -1,7 +1,11 @@
 ---
 name: migration-upgrade
-Mode: migration-upgrade
-description: Principal-level migration and upgrade skill for framework upgrades, dependency updates, tech stack migration, breaking change management, data migration, and version transition planning.
+description: >
+  Use this skill when upgrading framework versions, updating dependencies,
+  migrating tech stacks, handling breaking changes, performing data migrations,
+  or planning version transitions. Triggers on requests about upgrading,
+  updating packages, handling deprecations, breaking changes, migration
+  planning, or switching technologies.
 ---
 
 # Migration & Upgrade Skill
@@ -367,3 +371,22 @@ Steps to revert if migration fails.
 ## Post-Migration Tasks
 Cleanup, documentation updates, monitoring.
 ```
+
+## Example Trigger Phrases
+
+- "Upgrade Laravel to the latest version"
+- "Update Next.js from 14 to 15"
+- "How do I handle this breaking change?"
+- "Migrate from JavaScript to TypeScript"
+- "Update all dependencies"
+- "Plan the database migration"
+- "What changed between these versions?"
+- "Is it safe to upgrade this package?"
+
+## Usage Limitations
+
+- Do not upgrade without reading the official changelog and migration guide first.
+- Do not mix upgrades with feature work in the same change.
+- Do not skip rollback planning for any migration.
+- Do not test migrations against dev-size data only — consider production data volume.
+- Do not force-resolve dependency conflicts without documenting the reason and review date.

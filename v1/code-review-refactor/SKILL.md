@@ -1,7 +1,12 @@
 ---
 name: code-review-refactor
-Mode: code-review-refactor
-description: Principal-level code review and refactoring skill for improving maintainability, readability, architecture, naming, error handling, testability, performance, and long-term code health across any framework.
+description: >
+  Use this skill when the user requests any form of code review, even without
+  saying "review" directly — e.g. review PR, check diff, analyze bugs, check
+  code quality, assess naming, evaluate refactoring, review security, review
+  performance, review database, review API, review accessibility, review
+  observability, or request code improvement advice. Report only evidence-backed
+  findings with scope, severity, location, impact, evidence, and actionable fix.
 ---
 
 # Code Review Refactor Skill
@@ -22,6 +27,20 @@ Use this skill when reviewing code quality, cleaning messy code, refactoring, re
 3. Refactor in small, verifiable steps — never rewrite everything at once.
 4. The best refactor makes the next change easier.
 5. Complexity is the enemy — fight it constantly but pragmatically.
+
+## Review Discipline
+
+- Start by identifying scope: PR, diff, snippet, module, architecture, security, performance, database, API, accessibility, observability, or refactor.
+- State reviewed areas and out-of-scope areas when the user limits the request.
+- Use the available context only: code, diff, configuration, logs, schemas, contracts, tests, and documentation.
+- Separate provable behavior from assumptions that still need user confirmation.
+- Report only issues that are real, evidence-backed, and have practical impact.
+- Merge repeated symptoms with the same root cause into one finding and describe the combined impact.
+- Keep optional recommendations separate from findings that block correctness, security, reliability, or maintainability.
+- When more than one fix is valid, present the trade-offs and make the decision point explicit.
+- Lead with findings before positive notes or broad summaries so production risks are visible first.
+- Do not report that a category was checked with no issues unless that negative result is important to the user's decision.
+- Do not promote style preferences into findings unless they create measurable readability, correctness, maintainability, accessibility, or operational impact.
 
 ## Refactor Rules
 
@@ -64,6 +83,11 @@ Use this skill when reviewing code quality, cleaning messy code, refactoring, re
 - Race conditions — concurrent data corruption?
 - Type safety — explicit types, no implicit coercion?
 - Validation — all input validated?
+- Default values — don't treat `0`, `false`, or `""` as missing.
+- Financial precision — use fixed-point/integer, never float.
+- Empty vs unset — distinguish intentionally empty values from values not yet provided.
+- Equality semantics — use the correct comparison strategy for value equality vs reference equality.
+- Loop/index bounds — verify off-by-one and boundary behavior.
 
 ### Architecture & Design
 - Single Responsibility — one job per module?
@@ -77,11 +101,59 @@ Use this skill when reviewing code quality, cleaning messy code, refactoring, re
 - Unbounded operations — unlimited data sets?
 - Memory leaks — listeners/subscriptions cleaned up?
 - Caching opportunities — repeated expensive operations?
+- Algorithm complexity — O(n²) when O(n) is available?
+- Lazy loading — heavy resources loaded only when needed?
+- Blocking work — synchronous blocking on single-threaded hot paths?
+- Concurrency utilization — independent work executed sequentially without need?
+- Bundle and asset weight — heavy frontend resources loaded before needed?
 
 ### Security
 - Authorization — checked before access?
 - Input sanitization — before output/storage?
 - Sensitive data — exposed in logs/responses?
+- CSRF/CORS — state-changing endpoints protected?
+- Rate limiting — auth and abuse-prone endpoints guarded?
+
+### Database & Data Integrity
+- Schema fit — types, constraints, nullable match domain rules?
+- Migration safety — rollback path, backward compatibility?
+- Transaction boundary — atomic operations wrapped correctly?
+- Data consistency — unique constraints, foreign keys, idempotency?
+- Pagination — cursor/stable ordering for changing data?
+- Seed data — not mixed with production data or real credentials?
+
+### API Design
+- Contract clarity — request/response/error shape consistent?
+- HTTP semantics — methods, status codes, idempotency correct?
+- Validation & error response — actionable errors without internal leaks?
+- Backward compatibility — no client breakage without migration path?
+- Response minimality — only necessary fields, no raw model exposure?
+- Pagination & filtering — collections bounded, params validated?
+- Idempotency — retry-safe operations have dedup keys?
+- Rate limit feedback — quota info returned for client backoff?
+- Observability — request/correlation IDs propagated?
+
+### Accessibility
+- Semantic HTML — correct elements for purpose (button, link, heading)?
+- Keyboard navigation — all controls reachable, no traps?
+- Accessible names — icon buttons, inputs, landmarks have labels?
+- ARIA correctness — used only when necessary, roles/states correct?
+- Color & contrast — sufficient contrast, not color-only indicators?
+- Error & form feedback — validation linked to fields, screen-reader aware?
+- Motion & timing — respects reduced motion, no forced auto-updates?
+- Responsive & zoom — usable when zoomed or viewport changes?
+
+### Observability & Operations
+- Structured logging — searchable fields (request_id, user_id, operation, status)?
+- Log level discipline — no debug logs in production hot paths?
+- Metrics — critical flows have throughput/latency/error rate tracking?
+- Tracing — async/distributed requests propagate trace context?
+- Error reporting — exceptions sent to tracking system with context (no secrets)?
+- Health & readiness — service/job has health signals reflecting dependencies?
+- Timeouts & retries — external calls have timeout, backoff, circuit breaker?
+- Operational runbook fit — errors help ops team know impact and next steps?
+- Feature flag & rollout — high-risk changes have rollback mechanism?
+- Retry safety — non-idempotent operations are not retried without deduplication?
 
 ## Common Anti-Patterns
 
@@ -109,6 +181,70 @@ Use this skill when reviewing code quality, cleaning messy code, refactoring, re
 | Replace Magic Number with Constant | Unclear hard-coded values |
 | Compose Method | Long method with sequential steps |
 | Move Method/Field | Logic belongs elsewhere |
+
+## Design Principles
+
+### SOLID
+
+| Principle | Check |
+|-----------|-------|
+| Single Responsibility | Each unit has one reason to change |
+| Open/Closed | Extensible without modifying stable code |
+| Liskov Substitution | Subtypes can replace base types safely |
+| Interface Segregation | Interfaces are small and specific |
+| Dependency Inversion | Depend on abstractions, not concretions |
+
+### CUPID
+
+| Principle | Check |
+|-----------|-------|
+| Composable | Parts combine without deep internal knowledge |
+| Unix | Each unit does one thing well |
+| Predictable | Behavior is consistent from input/state/contract |
+| Idiomatic | Follows language/framework/project conventions |
+| Domain-based | Code reflects domain language and concepts |
+
+### Additional Principles
+
+| Principle | Check |
+|-----------|-------|
+| KISS | Simplest approach chosen, no unnecessary complexity |
+| YAGNI | Only current requirements built, no speculative structure |
+| DRY | Each logic piece has single source of truth |
+| SoC | Concerns clearly separated, minimal cross-knowledge |
+| Composition over Inheritance | Behavior built by composing small parts |
+| Law of Demeter | Only talks to direct collaborators |
+| Defensive Programming | Validates input before critical operations |
+| Immutability | Data not mutated unnecessarily, new values created |
+| Cognitive Complexity | Functions not too long, nesting not too deep, early returns used |
+
+## Naming Convention
+
+### Case Conventions
+
+| Convention | Use For |
+|-----------|--------|
+| `PascalCase` | Components, Classes, Interfaces, Types, Enums, Hooks |
+| `snake_case` | Variables, Parameters, Properties, DB fields, API keys |
+| `UPPER_CASE` | Constants, Env vars, Enum members, Error codes |
+| `kebab-case` | Files, Folders, URLs, CSS classes, Data attributes |
+
+### Naming Quality Rules
+
+| Rule | Check |
+|------|-------|
+| Intent First | Name reveals purpose before implementation detail |
+| Domain Vocabulary | Uses terms consistent with project/team domain |
+| Specific Meaning | No vague names (`value`, `data`, `item`, `temp`) when context demands precision |
+| Boolean Clarity | Boolean names clearly express state/capability/condition |
+| Unit Awareness | Names include units when ambiguous (time, distance, money, size) |
+| Scope Precision | Name reflects scope (local, shared, request, session) when it matters |
+| Role Differentiation | Similar items have names distinguishing source/target/current/computed |
+| Action Accuracy | Functions use verbs matching actual behavior (create, read, validate, transform) |
+| Collection Naming | Collections named as plural, individual items named differently |
+| Abbreviation Control | Abbreviations only when universally understood in context |
+| Lifecycle State | Names clarify lifecycle status (pending, completed, failed, cancelled, expired) |
+| Searchable Names | Names are grep-friendly, not too short or common |
 
 ## Framework-Specific Review
 
@@ -152,23 +288,34 @@ Use this skill when reviewing code quality, cleaning messy code, refactoring, re
 ```markdown
 # Code Review
 
-## Summary
-Overview, quality assessment, confidence level.
+## Scope
+- **Reviewed**: files, diff, modules, or system areas inspected.
+- **Evidence used**: code, config, log, schema, contract, test, or documentation.
+- **Limitations**: missing info that affects confidence (no schema, no runtime log, etc.).
 
-## Critical Issues 🔴
-Must fix. File, line, problem, risk, fix.
+## Findings
 
-## High Priority Issues 🟠
-Significant risks. File, line, problem, risk, fix.
+Group by severity: 🔴 Critical → 🟠 High → 🟡 Medium → 💡 Suggestion.
 
-## Medium Issues 🟡
-Code smells and maintainability concerns.
+For each finding:
+- **[Issue Name]**
+  - **Severity** — 🔴/🟠/🟡/💡
+  - **Category** — correctness, security, database, API, accessibility, observability, performance, naming, or code quality
+  - **Location** — file path and line number when known
+  - **Problem** — what is wrong or inappropriate
+  - **Impact** — why it matters and what it affects
+  - **Evidence** — code path, diff, config, or data that supports this finding
+  - **Fix** — smallest change that addresses root cause, with code example when appropriate
+  - **Alternatives** — if multiple fixes exist, summarize trade-offs and what the user needs to decide
 
-## Suggested Improvements 💡
-Optional enhancements and alternatives.
+If no findings: "No evidence-backed issues found in the provided context" + state remaining limitations.
+
+## Questions & Assumptions
+- Questions that need user confirmation before a decision can be made.
+- Assumptions used during review — do NOT turn assumptions into findings without evidence.
 
 ## What's Done Well ✅
-Positive observations worth reinforcing.
+Positive observations worth reinforcing (evidence-backed only).
 
 ## Refactoring Opportunities
 - Quick wins (< 30 min)
@@ -181,3 +328,23 @@ Positive observations worth reinforcing.
 - 🔄 Request changes — Must fix critical/high issues
 - ❌ Reject — Fundamental design problems
 ```
+
+## Example Trigger Phrases
+
+- "Review this PR"
+- "Check this code for bugs or security issues"
+- "Look at this diff before merge"
+- "Is the performance OK here?"
+- "Review API design and error handling"
+- "Check accessibility of this component"
+- "Review naming and code quality"
+- "Help me refactor this"
+- "Is this code production-ready?"
+
+## Usage Limitations
+
+- Do not use this skill for writing new code from scratch — use domain-specific skills instead.
+- Do not conclude dependency vulnerabilities without manifest, lockfile, audit output, or verifiable version evidence.
+- Do not cite external standards without verifying the latest authoritative source.
+- Do not guess business requirements, API contracts, or data models not visible in context.
+- Do not turn stylistic preferences into findings unless they have measurable system impact.

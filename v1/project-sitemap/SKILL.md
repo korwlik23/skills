@@ -1,6 +1,11 @@
 ---
 name: project-sitemap
-description: Principal project sitemap — generate structured map of codebase for rapid AI/developer onboarding.
+description: >
+  Use this skill to generate a structured map of the entire project codebase
+  for rapid AI or developer onboarding. Triggers on requests about project
+  structure, codebase overview, architecture mapping, onboarding context,
+  or "show me the project layout". Produces a machine-readable sitemap with
+  routes, models, modules, dependencies, and relationships.
 ---
 
 # Project Sitemap
@@ -211,3 +216,21 @@ When updating an existing sitemap:
 - [ ] Mermaid diagram renders correctly?
 - [ ] No generated/ignored directories included?
 - [ ] Sitemap date and stack info current?
+
+## Example Trigger Phrases
+
+- "Generate a sitemap for this project"
+- "Map the codebase structure"
+- "Show me the project layout"
+- "Create an architecture overview"
+- "I need to understand this project quickly"
+- "Update the project sitemap"
+- "What modules does this project have?"
+
+## Usage Limitations
+
+- Do not include generated directories (node_modules, vendor, .next, dist, build).
+- Do not fabricate route or endpoint information — scan actual routing config.
+- Do not assume architecture patterns without inspecting the codebase.
+- Do not include sensitive environment values — document variable names only.
+- Do not skip verifying that the sitemap matches current project structure.

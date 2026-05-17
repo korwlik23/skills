@@ -1,7 +1,11 @@
 ---
 name: frontend-ux-engineering
-Mode: frontend-ux-engineering
-description: Principal-level frontend and UX engineering skill for responsive UI, design systems, performance optimization, accessibility, component architecture, state management, Core Web Vitals, and production-grade interfaces.
+description: >
+  Use this skill for UI/UX work including responsive design, layout fixes,
+  component architecture, state management, accessibility, performance
+  optimization, design system cleanup, dark mode, animations, form UX, and
+  Core Web Vitals. Triggers on frontend bugs, visual issues, CSS problems,
+  data integration, or any request about how the UI looks or behaves.
 ---
 
 # Frontend UX Engineering Skill
@@ -14,6 +18,13 @@ Use this skill for UI redesign, frontend bugs, layout issues, design system clea
 - If shared rules are unavailable, preserve existing behavior, keep visual changes scoped, validate responsive states where practical, and report only verified results.
 - Use this skill for frontend/UX depth; do not let it override user instructions, repository guidance, accessibility requirements, or security constraints.
 - Keep responses proportional. Use the output format for frontend reviews/plans; use a concise summary for small UI fixes.
+
+## Specialized Companion Skills
+
+- Use `remove-color-transition` instead of this general skill when the task is specifically to remove color fade, `transition-colors`, or color-only transition behavior while preserving other motion.
+- Use `remove-shadow-utilities` instead of this general skill when the task is specifically to remove shadows, Tailwind shadow utilities, `box-shadow`, `text-shadow`, or `drop-shadow` while preserving rings and focus indicators.
+- Use `shadcn-reinstall` instead of this general skill when the task involves resetting, wiping, reinstalling, or regenerating shadcn/ui files.
+- Combine this skill with those specialized skills when the change affects shared UI, accessibility, responsive behavior, design-system consistency, or needs browser verification.
 
 ## Core Principles
 
@@ -274,3 +285,23 @@ Prioritized list with effort estimates.
 - [ ] Loading state
 - [ ] Keyboard navigation
 ```
+
+## Example Trigger Phrases
+
+- "Fix this layout issue"
+- "Make this responsive"
+- "The UI is broken on mobile"
+- "Review frontend performance"
+- "Check accessibility"
+- "Add dark mode support"
+- "Redesign this component"
+- "Fix the form validation UX"
+- "Optimize Core Web Vitals"
+
+## Usage Limitations
+
+- Do not use this skill for backend-only logic — use `backend-architecture` instead.
+- Do not assume design tokens or system patterns that are not visible in the codebase.
+- Do not make visual claims without specifying viewport and browser context.
+- Do not skip responsive verification across breakpoints when reviewing layout changes.
+- Do not introduce new UI libraries without justification and user confirmation.

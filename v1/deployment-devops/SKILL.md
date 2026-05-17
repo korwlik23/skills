@@ -1,7 +1,11 @@
 ---
 name: deployment-devops
-Mode: deployment-devops
-description: Principal-level deployment and DevOps skill for production readiness, zero-downtime deployment, CI/CD pipelines, Docker, server config, monitoring, alerting, backup, rollback, infrastructure as code, and incident response.
+description: >
+  Use this skill for deployment, production readiness, server setup, CI/CD,
+  Docker, rollback, zero-downtime deployment, queue workers, cron, environment
+  config, monitoring, alerting, observability, backup, and infrastructure.
+  Triggers on requests about deploying, going live, server issues, pipeline
+  setup, or any production operations concern.
 ---
 
 # Deployment DevOps Skill
@@ -282,6 +286,39 @@ php artisan migrate:rollback --step=1
 7. Post-mortem — document what happened, why, and how to prevent
 ```
 
+## Application Observability
+
+Beyond infrastructure monitoring, ensure the application itself is observable:
+
+### Logging Standards
+- [ ] Structured logging (JSON format) with searchable fields
+- [ ] Consistent log levels: DEBUG (dev only), INFO (normal ops), WARN (degraded), ERROR (failure)
+- [ ] No debug logs in production hot paths
+- [ ] Request ID / correlation ID in every log entry
+- [ ] No secrets, tokens, PII, or passwords in logs
+
+### Distributed Tracing
+- [ ] Trace context propagated across service boundaries
+- [ ] Async flows (queues, jobs, webhooks) carry correlation IDs
+- [ ] External API calls include timing and status in traces
+
+### Application Metrics
+- [ ] Critical flows track throughput, latency (p50/p95/p99), and error rate
+- [ ] Business metrics tracked (signups, orders, payments) where applicable
+- [ ] Queue depth and processing time monitored
+- [ ] Cache hit/miss ratio tracked
+
+### Error Reporting
+- [ ] Unhandled exceptions sent to error tracking (Sentry, Bugsnag, etc.)
+- [ ] Error reports include request context (no secrets)
+- [ ] Error grouping configured to avoid noise
+- [ ] Alert on new error types or error rate spikes
+
+### Operational Readiness
+- [ ] Error messages help ops team understand impact and next steps
+- [ ] High-risk changes have feature flags or rollback mechanism
+- [ ] Runbook references included in alert configurations
+
 ## L5 Acceptance Gates
 
 - Build, test, migration, deploy, rollback, and smoke-test paths are defined before release.
@@ -319,3 +356,23 @@ Monitoring and verification tasks after deployment.
 ## Monitoring Gaps
 Missing monitoring or alerting recommendations.
 ```
+
+## Example Trigger Phrases
+
+- "Deploy this to production"
+- "Is this production-ready?"
+- "Set up CI/CD pipeline"
+- "Configure Docker for this project"
+- "How do I rollback?"
+- "Set up monitoring and alerting"
+- "Review deployment process"
+- "Server is down, what do I do?"
+- "Set up zero-downtime deployment"
+
+## Usage Limitations
+
+- Do not execute destructive production commands without explicit confirmation.
+- Do not modify production data, config, or infrastructure without backup verification.
+- Do not assume cloud provider or hosting details not visible in the codebase.
+- Do not skip stating rollback procedures for any deployment change.
+- Do not restart production services during peak traffic without confirming with the user.
