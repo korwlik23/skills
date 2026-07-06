@@ -35,7 +35,7 @@ Before changing, reviewing, or acting on any task in this directory:
 
 1. Read `RULES.md` as the shared operating contract — including the **Workflow Discipline
    Layer** (instruction priority, mandatory skill invocation, Rigid/Flexible skill types,
-   the development lifecycle, the two HARD GATES, the Red Flags table, and the
+   the development lifecycle, the three HARD GATES, the Red Flags table, and the
    three-iteration revision rule) and the Evidence-Based Findings principle.
 2. **Skill invocation is mandatory.** If there is even a ~1% chance a skill applies, read
    and apply its `SKILL.md` BEFORE any response or action — including clarifying questions
@@ -67,8 +67,11 @@ Debugging path: `bug-debugging` (Rigid Debugging Gate with recite-verbatim Debug
 Review path: pair `scrutinize` (outsider stance, simpler-alternative pass) with
 `code-review-refactor` (checklist) — they don't overlap.
 
-The two HARD GATES from `RULES.md` always apply:
+The three HARD GATES from `RULES.md` always apply:
 - **Design before code** — no implementation until a design is approved.
+- **Structure before code** — state the file/module layout before implementing; one file =
+  one responsibility; ~500-line ceiling per file; never put an entire product in one
+  namespace/controller/page, and never bolt a feature onto an oversized file — split first.
 - **Verification before completion** — no "done" without observed evidence.
 
 Production-grade skill changes should keep `SKILL.md` concise, move large
